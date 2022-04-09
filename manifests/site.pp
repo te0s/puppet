@@ -14,7 +14,7 @@ node 'slave1.puppet' {
       ensure => absent,
       }
    
-   file { '/var/www/html/web1.org/html/index.html':
+   file { '/var/www/html/index.html':
       ensure => file,
       source => 'https://raw.githubusercontent.com/te0s/hometask_new/main/sites/01-demosite-static/index.html',
       replace => false,
