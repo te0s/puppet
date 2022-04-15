@@ -2,9 +2,15 @@ node default {
 }
 
 node 'master.puppet' {
-   file { '/root/README':
-      ensure => absent,
-      }
+include nginx
+nginx::resource::server { 'static':
+  listen_port => 80,
+  proxy => 'http://192.168.56.101:80',
+  }
+nginx::resource::server { 'dynamic':
+  listen_port => 81,
+  proxy => 'http://192.168.56.102:80',
+  }
 }
 
 node 'slave1.puppet' {
@@ -37,3 +43,7 @@ node 'slave2.puppet' {
       }
 }
 
+
+node 'mine' {
+  include minecraft
+}
