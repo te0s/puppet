@@ -1,5 +1,5 @@
 [Unit]
-Description=Minecraft
+Description=minecraft
 
 [Service]
 ExecStart=/etc/alternatives/jre_17/bin/java -Xmx1024M -Xms1024M -jar /opt/minecraft/server.jar nogui
