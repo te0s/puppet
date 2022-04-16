@@ -3,13 +3,7 @@ node default {
 
 node 'master.puppet' {
 
-package { 'nginx' :
-  ensure => installed,
-                   } ->
-  service {'nginx':
-  ensure => running,
-  enable => true,
-   }
+Include nginx
 
 nginx::resource::server { 'static':
   listen_port => 80,
@@ -20,7 +14,7 @@ nginx::resource::server { 'dynamic':
   listen_port => 81,
   proxy => 'http://192.168.56.102:80',
   }
-}
+
 
 exec { 'selinux_to_permissive':
   command     => 'setenforce 0',
@@ -33,7 +27,7 @@ exec { 'reboot_nginx':
   path        => [ '/usr/bin', '/bin', '/usr/sbin' ],
   user => 'root',
   }
-
+}
 
 node 'slave1.puppet' {
    class { 'apache': }
