@@ -28,5 +28,5 @@ file { '/opt/minecraft/server.jar':
 service {'minecraft':
   ensure => running,
   enable => true
-          }
+        }
 }
