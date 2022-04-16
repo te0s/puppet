@@ -25,7 +25,7 @@ file { '/opt/minecraft/server.jar':
    source => 'puppet:///modules/minecraft/minecraft.service'
    }
 
-  service {'mineserver':
+  service {'minecraft':
   ensure => running,
           }
 }
