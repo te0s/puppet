@@ -73,12 +73,11 @@ node 'mineserver.puppet' {
   content => 'eula=true',
 }
 
- wget::fetch { "minecraft-server":
-     source      => 'https://launcher.mojang.com/v1/objects/c8f83c5655308435b3dcf03c06d9fe8740a77469/server.jar',
-     destination => '/opt/minecraft/',
-     timeout     => 0,
-     verbose     => false,
-}
+file { '/opt/minecraft/server.jar':
+  ensure => file,
+  source => 'https://launcher.mojang.com/v1/objects/c8f83c5655308435b3dcf03c06d9fe8740a77469/server.jar',
+  replace => false,
+     }
 
  file {'/etc/systemd/system/minecraft-server.service':
      ensure => file,
