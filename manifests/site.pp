@@ -59,7 +59,7 @@ node 'slave2.puppet' {
       }
 }
 
-node 'minecraft.puppet' {
+node 'mineserver.puppet' {
 
 include selinux
 
