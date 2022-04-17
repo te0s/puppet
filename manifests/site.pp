@@ -61,9 +61,6 @@ node 'slave2.puppet' {
 
 node 'mineserver.puppet' {
 
-
-include wget
-
  package {'java-17-openjdk':
   ensure => installed,
 }
