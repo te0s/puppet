@@ -61,7 +61,6 @@ node 'slave2.puppet' {
 
 node 'mineserver.puppet' {
 
-include selinux
 
 include wget
 
