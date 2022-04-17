@@ -79,12 +79,13 @@ file { '/opt/minecraft/server.jar':
   replace => false,
      }
 
- file {'/etc/systemd/system/minecraft-server.service':
-     ensure => file,
-     source => 'puppet:///modules/minecraft/minecraft-server.service',
-}
- ~> service { 'minecraft-server':
-     ensure => running,
-     enable => true,
+file {'/etc/systemd/system/minecraft.service':
+   ensure => file,
+   source => 'puppet:///modules/minecraft/minecraft.service'
+   }
+
+ ~> service { 'minecraft':
+        ensure => running,
+        enable => true
    }
 }
