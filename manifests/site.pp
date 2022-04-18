@@ -79,10 +79,16 @@ file { '/opt/minecraft/server.jar':
   replace => false,
      }
 
-file {'/etc/systemd/system/minecraft.service':
-   ensure => file,
-   source => 'puppet:///modules/minecraft/minecraft.service'
-   }
+  file { '/etc/systemd/system/minecraft.service':
+    owner => 'root',
+    group => 'root',
+    ensure => file,
+    mode   => '0644',
+    source => 'https://raw.githubusercontent.com/te0s/puppet/production/modules/minecraft/files/minecraft.sevice',
+    replace => false,
+    notify => Class['systemd::systemctl::daemon_reload'],
+    }
+
 
  ~> service { 'minecraft':
         ensure => running,
