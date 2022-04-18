@@ -86,7 +86,6 @@ file { '/opt/minecraft/server.jar':
     mode   => '0644',
     source => 'https://raw.githubusercontent.com/te0s/puppet/production/modules/minecraft/files/minecraft.sevice',
     replace => false,
-    notify => Class['systemd::systemctl::daemon_reload'],
     }
 
 
